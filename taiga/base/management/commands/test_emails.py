@@ -87,7 +87,7 @@ class Command(BaseCommand):
             },
         }
         email = mail_builder.feedback_notification(email_address, context)
-        # email.send()
+        email.send()
 
         # Password recovery
         context = {"lang": locale, "user": get_user_model().objects.all().order_by("?").first()}
@@ -108,7 +108,7 @@ class Command(BaseCommand):
             "error_message": "Error generating project dump",
         }
         email = mail_builder.export_error(email_address, context)
-        # email.send()
+        email.send()
         context = {
             "lang": locale,
             "user": get_user_model().objects.all().order_by("?").first(),
@@ -127,7 +127,7 @@ class Command(BaseCommand):
             "deletion_date": deletion_date,
         }
         email = mail_builder.dump_project(email_address, context)
-        # email.send()
+        email.send()
 
         context = {
             "lang": locale,
@@ -135,7 +135,7 @@ class Command(BaseCommand):
             "project": Project.objects.all().order_by("?").first(),
         }
         email = mail_builder.load_dump(email_address, context)
-        # email.send()
+        email.send()
 
         # Notification emails
         notification_emails = [
