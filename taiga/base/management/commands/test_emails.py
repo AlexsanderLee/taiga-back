@@ -116,7 +116,7 @@ class Command(BaseCommand):
             "error_message": "Error importing project dump",
         }
         email = mail_builder.import_error(email_address, context)
-        # email.send()
+        email.send()
 
         deletion_date = timezone.now() + datetime.timedelta(seconds=60*60*24)
         context = {
@@ -237,7 +237,7 @@ class Command(BaseCommand):
             "comment": "Test comment notification."
         }
         email = mail_builder.contact_notification(email_address, context)
-        # email.send()
+        email.send()
 
         # GitHub importer email
         context = {
@@ -245,7 +245,7 @@ class Command(BaseCommand):
             "user": get_user_model().objects.all().order_by("?").first()
         }
         email = mail_builder.github_import_success(email_address, context)
-        # email.send()
+        email.send()
 
         # Jira importer email
         context = {
@@ -253,7 +253,7 @@ class Command(BaseCommand):
             "user": get_user_model().objects.all().order_by("?").first()
         }
         email = mail_builder.jira_import_success(email_address, context)
-        # email.send()
+        email.send()
 
         # Trello importer email
         context = {
@@ -261,7 +261,7 @@ class Command(BaseCommand):
             "user": get_user_model().objects.all().order_by("?").first()
         }
         email = mail_builder.trello_import_success(email_address, context)
-        # email.send()
+        email.send()
 
         # Asana importer email
         context = {
@@ -269,7 +269,7 @@ class Command(BaseCommand):
             "user": get_user_model().objects.all().order_by("?").first()
         }
         email = mail_builder.asana_import_success(email_address, context)
-        # email.send()
+        email.send()
 
         # Error importer email
         context = {
@@ -280,4 +280,4 @@ class Command(BaseCommand):
             "exception": "Exception message"
         }
         email = mail_builder.importer_import_error(email_address, context)
-        # email.send()
+        email.send()
