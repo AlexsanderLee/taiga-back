@@ -139,19 +139,19 @@ class Command(BaseCommand):
 
         # Notification emails
         notification_emails = [
-            # ("issues.Issue", "issues/issue-change"),
+            ("issues.Issue", "issues/issue-change"),
             ("issues.Issue", "issues/issue-create"),
             ("issues.Issue", "issues/issue-delete"),
-            # ("tasks.Task", "tasks/task-change"),
+            ("tasks.Task", "tasks/task-change"),
             ("tasks.Task", "tasks/task-create"),
             ("tasks.Task", "tasks/task-delete"),
-            # ("userstories.UserStory", "userstories/userstory-change"),
+            ("userstories.UserStory", "userstories/userstory-change"),
             ("userstories.UserStory", "userstories/userstory-create"),
             ("userstories.UserStory", "userstories/userstory-delete"),
-            # ("milestones.Milestone", "milestones/milestone-change"),
+            ("milestones.Milestone", "milestones/milestone-change"),
             ("milestones.Milestone", "milestones/milestone-create"),
             ("milestones.Milestone", "milestones/milestone-delete"),
-            # ("wiki.WikiPage", "wiki/wikipage-change"),
+            ("wiki.WikiPage", "wiki/wikipage-change"),
             ("wiki.WikiPage", "wiki/wikipage-create"),
             ("wiki.WikiPage", "wiki/wikipage-delete"),
         ]
