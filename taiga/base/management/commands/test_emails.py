@@ -65,13 +65,13 @@ class Command(BaseCommand):
 
         context = {"lang": locale, "membership": membership}
         email = mail_builder.membership_invitation(email_address, context)
-        # email.send()
+        email.send()
 
         # Membership notification
         context = {"lang": locale,
                    "membership": Membership.objects.order_by("?").filter(user__isnull=False).first()}
         email = mail_builder.membership_notification(email_address, context)
-        # email.send()
+        email.send()
 
         # Feedback
         context = {
@@ -92,7 +92,7 @@ class Command(BaseCommand):
         # Password recovery
         context = {"lang": locale, "user": get_user_model().objects.all().order_by("?").first()}
         email = mail_builder.password_recovery(email_address, context)
-        # email.send()
+        email.send()
 
         # Change email
         context = {"lang": locale, "user": get_user_model().objects.all().order_by("?").first()}
@@ -146,14 +146,14 @@ class Command(BaseCommand):
             ("tasks.Task", "tasks/task-create"),
             ("tasks.Task", "tasks/task-delete"),
             # ("userstories.UserStory", "userstories/userstory-change"),
-            # ("userstories.UserStory", "userstories/userstory-create"),
-            # ("userstories.UserStory", "userstories/userstory-delete"),
+            ("userstories.UserStory", "userstories/userstory-create"),
+            ("userstories.UserStory", "userstories/userstory-delete"),
             # ("milestones.Milestone", "milestones/milestone-change"),
-            # ("milestones.Milestone", "milestones/milestone-create"),
-            # ("milestones.Milestone", "milestones/milestone-delete"),
+            ("milestones.Milestone", "milestones/milestone-create"),
+            ("milestones.Milestone", "milestones/milestone-delete"),
             # ("wiki.WikiPage", "wiki/wikipage-change"),
-            # ("wiki.WikiPage", "wiki/wikipage-create"),
-            # ("wiki.WikiPage", "wiki/wikipage-delete"),
+            ("wiki.WikiPage", "wiki/wikipage-create"),
+            ("wiki.WikiPage", "wiki/wikipage-delete"),
         ]
 
         context = {
@@ -196,7 +196,7 @@ class Command(BaseCommand):
             "requester": get_user_model().objects.all().order_by("?").first(),
         }
         email = mail_builder.transfer_request(email_address, context)
-        # email.send()
+        email.send()
 
         context = {
             "project": Project.objects.all().order_by("?").first(),
@@ -205,7 +205,7 @@ class Command(BaseCommand):
             "reason": "Test reason"
         }
         email = mail_builder.transfer_start(email_address, context)
-        # email.send()
+        email.send()
 
         context = {
             "project": Project.objects.all().order_by("?").first(),
@@ -214,7 +214,7 @@ class Command(BaseCommand):
             "reason": "Test reason"
         }
         email = mail_builder.transfer_accept(email_address, context)
-        # email.send()
+        email.send()
 
         context = {
             "project": Project.objects.all().order_by("?").first(),
@@ -222,7 +222,7 @@ class Command(BaseCommand):
             "reason": "Test reason"
         }
         email = mail_builder.transfer_reject(email_address, context)
-        # email.send()
+        email.send()
 
 
         # Contact with project admins email

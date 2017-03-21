@@ -15,7 +15,7 @@
 {% block body %}
     {% trans user=user.get_full_name(), project=project.name, url=url, deletion_date=deletion_date|date("SHORT_DATETIME_FORMAT") + deletion_date|date(" T") %}
     <p>Hello {{ user }}, <br> Your dump from project <strong>{{ project }}</strong> has been correctly generated.<br>
-    <a href="{{ url }}" title="Download the dump file">Download the dump file</a> </p>
-    <p>This file will be deleted on {{ deletion_date }}.</p>
+    <a href="{{ url }}" style="color:#72a114;" title="Download the dump file">Download the dump file</a> </p>
+    <p><small>This file will be deleted on {{ deletion_date }}.</small></p>
     {% endtrans %}
 {% endblock %}
