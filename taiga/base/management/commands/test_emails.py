@@ -56,7 +56,7 @@ class Command(BaseCommand):
                     "cancel_token": "cancel-token"}
 
         email = mail_builder.registered_user(email_address, context)
-        # email.send()
+        email.send()
 
         # Membership invitation
         membership = Membership.objects.order_by("?").filter(user__isnull=True).first()
@@ -97,7 +97,7 @@ class Command(BaseCommand):
         # Change email
         context = {"lang": locale, "user": get_user_model().objects.all().order_by("?").first()}
         email = mail_builder.change_email(email_address, context)
-        # email.send()
+        email.send()
 
         # Export/Import emails
         context = {
